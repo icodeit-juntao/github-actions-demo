@@ -5,27 +5,49 @@ on:
     branches: [ "main" ]
 
 jobs:
-    build:
-        name: Build
-        runs-on: ubuntu-latest
-    
-        steps:
-          - uses: actions/checkout@v3
-    
-          - name: Setup node
-            uses: actions/setup-node@v3
-            with:
-              node-version: 18.14.2
-              cache: npm
-    
-          - name: Install
-            run: npm ci
-    
-          - name: Compile
-            run: npm run build
+  test:
+    name: Test
+    runs-on: ubuntu-latest
 
-          - name: Upload artifacts
-            uses: actions/upload-artifact@v3
-            with:
-              name: frontend-assets
-              path: dist/
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.14.2
+          cache: npm
+
+      - name: Install
+        run: npm ci
+        
+      - name: Test
+        run: npm test
+
+  build:
+      name: Build
+      runs-on: ubuntu-latest
+  
+      steps:
+        - uses: actions/checkout@v3
+  
+        - name: Setup node
+          uses: actions/setup-node@v3
+          with:
+            node-version: 18.14.2
+            cache: npm
+  
+        - name: Install
+          run: npm ci
+  
+        - name: Compile
+          run: npm run build
+
+        - name: Test
+          run: npm test
+
+        - name: Upload artifacts
+          uses: actions/upload-artifact@v3
+          with:
+            name: frontend-assets
+            path: dist/

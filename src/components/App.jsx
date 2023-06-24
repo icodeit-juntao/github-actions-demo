@@ -18,6 +18,9 @@ function App() {
         <h1>Quote of the day!</h1>
         <Quote author={quote.author} content={quote.content}/>
       </main>
+      <footer>
+        @ 2023
+      </footer>
     </div>
   );
 }
