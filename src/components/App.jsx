@@ -11,7 +11,7 @@ function App() {
   const {loading, quote} = useFetchQuote();
   
   return (
-    <div>
+    <div data-testid="quote-container">
       {quote && <Quote author={quote.author} content={quote.content} ref={quoteRef} />}
 
       <div className="actions">

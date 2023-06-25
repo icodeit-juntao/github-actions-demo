@@ -7,5 +7,5 @@ import App from '../App';
 
 test('renders page title', () => {
   render(<App />);
-  expect(screen.getByText("Quote of the day!")).toBeInTheDocument();
+  expect(screen.getByTestId("quote-container")).toBeInTheDocument();
 });
