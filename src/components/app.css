@@ -1,40 +1,56 @@
 body {
-    /* Location of your image */
-    background-image: url('https://images.unsplash.com/photo-1464618663641-bbdd760ae84a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2370&q=80');
+    background-image: url('../assets/prism.png');
+    background-repeat: repeat;
+}
 
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    /* Set height to 100% so it covers the entire page */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
     margin: 0;
+
+    /* background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); */
 }
 
-.app {
-    max-width: 600px;
-    margin: 0 auto;
+:root {
+    --quote-container-width: 450px;
+    --quote-container-height: 450px;
 }
 
-h1 {
-    font-family: 'Merriweather', serif;
-    font-size: 3rem;
-    text-align: center;
-    padding: 2rem 0;
-    color: #fff;
+.actions {
+    width: var(--quote-container-width);
+    margin: 1rem auto;
 }
 
 .quote {
+    width: var(--quote-container-width);
+    height: var(--quote-container-height);
     color: white;
     margin: 2rem 0;
     padding: 3rem;
-    font-size: 3rem;
-    /* font-family: "Diphylleia", serif; */
+    font-size: 2.5rem;
     font-family: 'Playfair Display', serif;
-    background-color: #46458c;
+    /* background-color: #46458c; */
+    background: linear-gradient(135deg, #E55D87 0%, #5FC3E4 100%);
     border-radius: 8px;
     font-weight: bolder;
+}
+
+.content::before {
+    content: "“";
+    color: rgba(255,255,255,0.3);
+    font-size: 3em;
+    line-height: 0.1em;
+    vertical-align: -.4em;
+}
+
+.quote {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .quote::first-letter {
@@ -43,6 +59,7 @@ h1 {
 }
 
 .author {
+    display: inline-block;
     text-transform: capitalize;
     color: #eee;
     font-weight: normal;

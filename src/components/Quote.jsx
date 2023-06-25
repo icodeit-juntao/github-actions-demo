@@ -1,8 +1,12 @@
-import React from "react";
+import React, {forwardRef} from "react";
 
-export const Quote = ({content, author}) => {
-  return (<div className="quote">
-    {content}
-    <div className="author">&mdash; {author}</div>
-  </div>)
-}
+export const Quote = forwardRef(({content, author}, ref) => {
+  return (
+    <article className="quote" ref={ref}>
+      <div>
+        <p className="content">{content}</p>
+        <p><span className="author">&mdash; {author}</span></p>
+      </div>
+    </article>
+  )
+})

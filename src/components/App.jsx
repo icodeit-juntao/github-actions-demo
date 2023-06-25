@@ -1,26 +1,22 @@
 import React from 'react';
 import './app.css';
+
 import {Quote} from "./Quote";
+import { useDownloadQuote } from './useDownloadQuote';
+import { useFetchQuote } from './useFetchQuote';
 
-import quotes from '../data/quotes.json';
-
-function pickRandomItem(arr) {
-  let index = Math.floor(Math.random() * arr.length);
-  return arr[index];
-}
 
 function App() {
-  const quote = pickRandomItem(quotes);
-
+  const { quoteRef, generateQuoteImage } = useDownloadQuote();
+  const {loading, quote} = useFetchQuote();
+  
   return (
-    <div className="app">
-      <main>
-        <h1>Quote of the day!</h1>
-        <Quote author={quote.author} content={quote.content}/>
-      </main>
-      <footer>
-        @ 2023
-      </footer>
+    <div>
+      {quote && <Quote author={quote.author} content={quote.content} ref={quoteRef} />}
+
+      <div className="actions">
+        <button onClick={generateQuoteImage}>download</button>
+      </div>
     </div>
   );
 }
