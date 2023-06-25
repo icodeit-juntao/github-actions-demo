@@ -51,7 +51,7 @@ jobs:
             path: dist/
 
         - name: Upload github pages
-          uses: actions/upload-pages-artifact@v3
+          uses: actions/upload-pages-artifact@v1
           with:
             name: github-pages
             path: dist/
