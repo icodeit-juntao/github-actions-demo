@@ -50,6 +50,12 @@ jobs:
             name: github-pages
             path: dist/
 
+        - name: Upload github pages
+          uses: actions/upload-pages-artifact@v3
+          with:
+            name: github-pages
+            path: dist/
+
   # Deploy job
   deploy:
     # Add a dependency to the build job
