@@ -90,7 +90,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           name: github-pages
-          path: dist
+          path: dist/
 
       - name: Deploy to GitHub Pages
         id: deployment
