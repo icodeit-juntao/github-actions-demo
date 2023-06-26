@@ -8,14 +8,15 @@ import { useFetchQuote } from './useFetchQuote';
 
 function App() {
   const { quoteRef, generateQuoteImage } = useDownloadQuote();
-  const {loading, quote} = useFetchQuote();
+  const {loading, quote, fetchQuote} = useFetchQuote();
   
   return (
     <div data-testid="quote-container">
       {quote && <Quote author={quote.author} content={quote.content} ref={quoteRef} />}
 
       <div className="actions">
-        <button onClick={generateQuoteImage}>download</button>
+        <button onClick={generateQuoteImage}><span className="material-symbols-outlined">download</span></button>
+        <button onClick={fetchQuote}><span className="material-symbols-outlined">navigate_next</span></button>
       </div>
     </div>
   );
